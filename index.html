@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Style.css">
+    <link rel="icon" href="Images/unnamed.png">
+    <title>Rock-Paper-Scissors</title>
+  </head>
+  <body>
+
+    <div class=" flex-container">
+      <div class="human">
+        <img class="js-faces-human faces" src="Images/Tie!-human-face.jpg">
+        <img class="js-hand-human hand" src="Images/Rock-human.jpg">
+      </div>
+      <div class="score-container">
+        <div class="p-score-container">
+          <p class="p-score">You</p>
+          <p class="p-score">Computer</p>
+        </div>
+        <p class="js-score score">0 : 0</p>
+      </div>
+      <div class=" computer">
+        <img class="js-faces-computer faces" src="Images/Tie!-computer-face.jpg">
+        <img class="js-hand-computer hand" src="Images/Rock-computer.jpg">
+      </div>
+    </div>
+
+    <p class="js-result result"></p>
+
+    <div class="button-container">
+      <button onclick="
+        openModalWindow();
+      " class="play">Play</button>
+      <button onclick="
+        score.wins = 0;
+        score.lose = 0;
+        localStorage.removeItem('score');
+        updateScoreElement();
+      " class="reset-score">
+        Reset Score
+      </button>
+    </div>
+    
+    <div class="background-modal-window">
+      <div class=" flex-container">
+        <button onclick="
+          closeModalWindow();
+          randomScore();
+          PlayGame('Rock');
+        " class="modal-button-icon">
+        <img class="modal-icon" src="Images/rock-emoji.png">
+        </button>
+
+        <button onclick="
+          closeModalWindow();
+          randomScore();
+          PlayGame('Paper');
+        " class="modal-button-icon">
+          <img class="modal-icon" src="Images/paper-emoji.png">
+        </button>
+
+        <button onclick="
+          closeModalWindow();
+          randomScore();
+          PlayGame('Scissors');
+        " class="modal-button-icon">
+          <img class="modal-icon" src="Images/scissors-emoji.png">
+        </button>
+      </div>
+    </div>
+    
+    <script src="Script.js"></script>
+
+  </body>
+</html>
